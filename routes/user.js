@@ -139,7 +139,7 @@ router.get("/students/find/:id", verifyTokenAndAdmin, async (req, res) => {
 router.get("/students/", verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new;
   try {
-    const users = query
+    const students = query
       ? await Student.find().sort({ _id: -1 }).limit(5)
       : await Student.find();
     res.status(200).json(students);
